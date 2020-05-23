@@ -1,28 +1,14 @@
-def node_array(node)
-  sub = []
-
-  node.neighbors.each do |n|
-    sub.push(n.val)
-  end
-  
-  sub
-end
-
 def cloneGraph(node)
   clone = []
   visiteds = []
   
-  while !visiteds.include?(node.val) do
-    break if node.val.nil?
+  while !node.nil? do
     visiteds.push(node.val) #mark as visited
-    neighs = node_array(node) #check their neighbors
+    neighs = node.neighbors.map { |n| n.val } #check their neighbors
     clone[node.val - 1] = neighs #add to clone
-    to_visit = node.neighbors.select { |x| !visiteds.include?(x.val)}
+    to_visit = node.neighbors.select { |x| !visiteds.include?(x.val) }
     node = to_visit[0]
-    p node.val
   end
+  p clone
   clone
 end
-
-# THE ERROR IS THAT IN THE LAST ITERATION, WHEN THERE ARE NO MORE VISITEDS, node.val
-# AS A CONDITION IS NIL. FIX THE BUG AND OPTIMIZE
