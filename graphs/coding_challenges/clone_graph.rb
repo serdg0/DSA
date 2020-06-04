@@ -1,16 +1,26 @@
 def cloneGraph(node)
-  clone = []
+  stack = [node]
   visiteds = []
+  clone = {}
   
-  while !node.nil? do
-    visiteds.push(node.val) #mark as visited
-    neighs = node.neighbors.map { |n| n.val } #check their neighbors
-    clone[node.val - 1] = neighs #add to clone
-    to_visit = node.neighbors.select { |x| !visiteds.include?(x.val) }
-    node = to_visit[0]
+  while !stack.empty? do
+      current_node = stack.pop
+      visiteds.push(current_node)
+      
+      if clone[current_node.val].nil?
+          clone[current_node.val] = Node.new(current_node.val, [])
+      end
+      
+      # Step 3: check the neighbors
+      current_node.neighbors.each do |nodebor|
+          clone[nodebor.val].nil?
+      end
+      
+      unvisiteds = current_node.neighbors.select { |node| !visiteds.include?(node) }
+      stack += unvisiteds
   end
-  p clone
-  clone
+  
+  clone[node.val]
 end
 # UNFINISHED
 # https://leetcode.com/problems/clone-graph/
