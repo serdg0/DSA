@@ -17,3 +17,7 @@ def h_index(citations)
     
     c
 end
+
+# Runtime: 36 ms, faster than 100.00% of Ruby online submissions for H-Index II.
+# Memory Usage: 10.8 MB, less than 16.67% of Ruby online submissions for H-Index II.
+# https://leetcode.com/problems/h-index-ii/
