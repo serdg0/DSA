@@ -1,22 +1,20 @@
 # @param {Integer} x
 # @return {Integer}
 def my_sqrt(x)
-    return x if x < 2
-    
     left, right = 1, x
     
     while left <= right
-        piv = (left + right) / 2
-        pow2 = piv**2
+        pivot = (left + right) / 2
+        pow = pivot**2
         
-        return piv if pow2 === x
+        return pivot if pow === x
         
-        if pow2 > x
-            right = piv - 1
+        if pow > x
+            right = pivot - 1
         else
-            left = piv + 1
+            left = pivot + 1
         end
-        
-        
     end
+    
+    left - 1
 end
