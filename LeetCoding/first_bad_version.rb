@@ -18,3 +18,7 @@ def first_bad_version(n)
     end
     
 end
+
+# https://leetcode.com/problems/first-bad-version/
+# Runtime: 44 ms
+# Memory Usage: 9.1 MB
